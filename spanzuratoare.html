@@ -1,0 +1,96 @@
+<html>
+<head>
+<title> Spanzuratoare </title>
+</head>
+<body>
+<h1> Spanzuratoarea</h1>
+<h3> Lista de litere </h3>
+
+<ul id = "charlist" >
+<li>A </li>
+<li>B</li>
+<li>C</li>
+<li>D</li>
+<li>E</li>
+<li>F</li>
+<li>G</li>
+<li>H </li>
+<li>I </li>
+<li>J </li>
+<li>K </li>
+<li>L </li>
+<li> M </li>
+<li> N </li>
+<li> O </li>
+<li> P </li>
+<li> R </li>
+<li> S </li>
+<li> T </li>
+<li> U </li>
+<li> V </li>
+<li> X </li>
+<li> Y </li>
+<li> Z </li>
+</ul>
+
+<p> Cuvantul </p>
+
+ // <p id="answerHolder"></p>
+
+
+<script type = "text/javascript" >
+
+	var words = ["ELEPHANT", "PARROT", "TURTLE", "NOTEBOOK"];
+	var myList = document.getElementById("charlist");
+	var answer = [ '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_'];
+	var randomElement = words[Math.floor(Math.random()*words.length)]
+	console.log(randomElement);
+	var lungime = randomElement.length;
+	answer2 = answer.splice(0, lungime);
+	var permission = 5;
+	confirm("Alegeti o litera din lista");
+	if(permission > 0) {
+	for(var i = 0; i< myList.children.length; i++) {
+	    myList.children[i].onclick = function(event) {
+	      node = event.target;
+		  console.log("Am dat click");
+		  console.log(node.textContent);
+	      for ( var j = 0; j<randomElement.length; j++) {
+            if(node.textContent === randomElement[j]) {
+			   console.log("Litera " + node.textContent + " se gaseste in cuvant");
+		       var character = String.fromCharCode(randomElement[j]);
+			   answer2[j] = randomElement[j];
+			   console.log("S-a scris in vector " + answer2[j]);
+			   gasit = true;
+			   }
+	        else {
+	        gasit = false;
+	        }
+			if(gasit == false) {
+			permission=permission-1;
+			window.alert("Mai aveti" + " " + permission + "incercari");
+			}
+			
+	    }
+		if(answer2.toString() == randomElement) {
+		permission = -1;
+		}
+	 }
+	 }
+	 }
+	 
+	 if(permission == -1 ) {
+	 window.alert("you win");
+	 }
+	 if(permission === 0 ) {
+	 window.alert("You have been hangged");
+	 }
+
+
+</script>
+
+
+</body>
+
+
+</html>

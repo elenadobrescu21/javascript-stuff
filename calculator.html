@@ -1,0 +1,104 @@
+<!DOCTYPE  html>
+
+<html>
+<head>
+<title> Basic calculator </title >
+</head>
+<style>
+input {
+    height:20px;
+	width:100px;
+}
+button {
+   height:30px;
+   width:30px;
+}
+.calculator{
+background-color:yellow;
+display:block;
+margin-left:auto;
+margin-right:auto;
+margin-top:10%;
+margin-bottom:auto;
+width:50%;
+height:350px;
+border-color:blue;border-style:dotted;
+text-align:center;
+}
+.input {
+display:inline block;
+}
+h1{
+text-align:center;
+}
+
+</style>
+<body> 
+<div class="calculator">
+<h1> Calculator </h1>
+<div class="input">
+ <input type="text" id="firstOperator" /> <span id ="semn">  </span>
+ <input type="text" id="secondOperator" />
+</div>
+ <p> Operatii </p>
+   <button id="adunare" onclick="adunare()" value="adunare">+</button>
+    <button id="scadere">-</button>
+	<button id="impartire"> / </button>
+	<button id="inmultire"> * </button >
+	
+ <p> Rezultat: </p> 
+ <h2 id="result">   </h2>
+ </div>
+ <script>
+
+ var scadere = document.getElementById("scadere");
+ var inmultire= document.getElementById("inmultire");
+ 
+ 
+ function adunare() {
+ var operator1 = Number(document.getElementById("firstOperator").value);
+ var operator2 = Number(document.getElementById("secondOperator").value);
+ var x = operator1 + operator2;
+ console.log(x);
+ document.getElementById("result").innerHTML=x;
+ document.getElementById("semn").innerHTML="+";
+ alert("The result equals to: " + x);
+ }
+ 
+ scadere.onclick = function() {
+  var operator1 = Number(document.getElementById("firstOperator").value);
+ var operator2 = Number(document.getElementById("secondOperator").value);
+ var rezultat = document.getElementById("result");
+ var x = operator1-operator2;
+ rezultat.innerHTML = x;
+ document.getElementById("semn").innerHTML="-";
+
+ }
+ 
+ inmultire.onclick = function() {
+  var operator1 = Number(document.getElementById("firstOperator").value);
+ var operator2 = Number(document.getElementById("secondOperator").value);
+ var rezultat = document.getElementById("result");
+ var x = operator1*operator2;
+ rezultat.innerHTML = x;
+ document.getElementById("semn").innerHTML="*";
+
+ }
+ 
+ impartire.onclick = function() {
+ var operator1 = Number(document.getElementById("firstOperator").value);
+ var operator2 = Number(document.getElementById("secondOperator").value);
+ var x = operator1/operator2;
+ var rezultat = document.getElementById("result");
+ if (operator2.value ===0 ) {
+ confirm("Impartire la 0, nu este posibil");
+ }
+ rezultat.innerHTML = x;
+ alert("The result equals to: " + x);
+ document.getElementById("semn".innerHTML)="/";
+
+ }
+ 
+ </script>
+</body>
+</html>
